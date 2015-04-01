@@ -26,8 +26,8 @@
         <nav>
           <ul class="nav nav-pills pull-right">
             <li role="presentation" class="active"><a href="#">Home</a></li>
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
+            <li role="presentation"><a href="#" id="about">About</a></li>
+            <li role="presentation"><a href="#" id="orderManagment" >Order Managment</a></li>
           </ul>
         </nav>
         <h3 class="text-muted">Flower Shop</h3>
@@ -72,29 +72,38 @@
       </footer>
 
     </div> <!-- /container -->
-    <!-- Dialog -->
+    <!-- Dialog Form -->
     <div id="dialog-form" title="Enter Card Information">
 	  <p class="validateTips">All form fields are required.</p>
 	 
 	  <form>
-	    	<table>
+	    	<table cellpadding="100">
 	    		<tr>
 	    			<td><label for="name">Name</label></td>
-	    			<td><input type="text" name="name" id="name" value="Azadeh Kosari" class="text ui-widget-content ui-corner-all largetextbox"></td>
+	    			<td><input type="text" name="name" id="name" value="" class="text ui-widget-content ui-corner-all largetextbox"></td>
 	    			<td></td>
 	    			<td></td>
+	    		</tr>
+	    		<tr>
+	    			<td colspan="4"><div style="padding:3px"></div></td>
 	    		</tr>
 	    		<tr>
 	    			<td><label for="email">Email</label></td>
-	    			<td><input type="text" name="email" id="email" value="Azadeh.kosari@gmail.com" class="text ui-widget-content ui-corner-all largetextbox"></td>
+	    			<td><input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all largetextbox"></td>
 	    			<td></td>
 	    			<td></td>
 	    		</tr>
 	    		<tr>
-	    			<td><label for="cardNumber">cardNumber</label></td>
-	    			<td><input type="text" name="cardNumber" id="cardNumber" value="0000 0000 0000 0000" class="text ui-widget-content ui-corner-all largetextbox"></td>
+	    			<td colspan="4"><div style="padding:3px"></div></td>
+	    		</tr>
+	    		<tr>
+	    			<td><label for="cardNumber">Card Number</label></td>
+	    			<td><input type="text" name="cardNumber" id="cardNumber" value="0" class="text ui-widget-content ui-corner-all largetextbox"></td>
 	    			<td></td>
 	    			<td></td>
+	    		</tr>
+	    		<tr>
+	    			<td colspan="4"><div style="padding:3px"></div></td>
 	    		</tr>
 	    		<tr>
 	    			<td><label for="amount">Amount</label></td>
@@ -103,17 +112,22 @@
 	    			<td></td>
 	    		</tr>
 	    		<tr>
+	    			<td colspan="4"><div style="padding:3px"></div></td>
+	    		</tr>
+	    		<tr>
 	    			<td><label for="CVV2">CVV2</label></td>
-	    			<td><input type="password" name="CVV2" id="CVV2" value="xxxxxxx" class="text ui-widget-content ui-corner-all "></td>
+	    			<td><input type="password" name="CVV2" id="CVV2" value="" class="text ui-widget-content ui-corner-all "></td>
 	    			<td></td>
 	    			<td></td>
 	    		</tr>
-	    		
 	    		<tr>
-	    			<td></td>
-	    			<td></td>
-	    			<td></td>
-	    			<td></td>
+	    			<td colspan="4"><div><br></div></td>
+	    		</tr>
+	    		<tr>
+	    			<td colspan="4"><div id="selecteddescription" ></div></td>
+	    		</tr>
+	    		<tr>
+	    			<td colspan="2" align="center"><img id="selectedimage" style="width:150px;height:200px"></img></td>
 	    		</tr>
 	    	</table>
 	      
@@ -121,7 +135,28 @@
 	      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
 	  </form>
 	</div>
-	<!-- /Dialog -->
+	<!-- /Dialog Form -->
+	
+	<!-- Progress Dialog  -->
+		<div id="dialog" title="Order Processing">
+		<div class="progress-label">Starting Sending...</div>
+		<div id="progressbar"></div>
+		</div>
+		<button id="downloadButton" style="display:none">sending Email</button>
+	<!-- /Progress Dialog  -->
+	
+	<!-- Dialog About-->
+		<div id="aboutDialog" title="About Developer" style="display:none">
+			<p>This sample is created that I show my level of knowledge and abilities. If you have any question please feel free to contact me. <a href="mailto:azadeh.kosari@gmail.com">azadeh.kosari@gmail.com</a></p>
+		</div>
+	<!-- /Dialog About-->
+	
+	<!-- Order Managment-->
+		<div id="orderManagmentDialog" title="Order Managment/History" style="display:none">
+			<p>Under Construction..</p>
+		</div>
+	<!-- /Dialog About-->
+	
   </body>
   
     <!-- Bootstrap core JavaScript
@@ -130,6 +165,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/events.js"></script>
+    <script type= "text/javascript" src="${pageContext.request.contextPath}/js/dialog.js"></script>
+    <script type= "text/javascript" src="${pageContext.request.contextPath}/js/progressbar.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="dist/js/holder.js"></script>
