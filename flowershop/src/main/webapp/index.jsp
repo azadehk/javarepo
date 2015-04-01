@@ -14,10 +14,13 @@
     <!-- Custom styles for this template -->
     <link href="css/jumbotron-narrow.css" rel="stylesheet">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css "/>
+	<script src="js/functions.js"></script>
   </head>
 
   <body>
-
+	<div >
+		<input type="hidden" id="txtSelectedId" value="0" />
+	</div>
     <div class="container">
       <div class=" clearfix">
         <nav>
@@ -60,7 +63,7 @@
         </div>
 
         <div class="col-lg-6">
-          	<input id="list" type="button" value="List" style="display:none"/>
+          	<input id="opendialog" type="button" value="opendialog" style="display:none"/>
         </div>
       </div>
 
@@ -70,21 +73,52 @@
 
     </div> <!-- /container -->
     <!-- Dialog -->
-    <div id="dialog-form" title="Create new user">
+    <div id="dialog-form" title="Enter Card Information">
 	  <p class="validateTips">All form fields are required.</p>
 	 
 	  <form>
-	    <fieldset>
-	      <label for="name">Name</label>
-	      <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
-	      <label for="email">Email</label>
-	      <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
-	      <label for="password">Password</label>
-	      <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
-	 
+	    	<table>
+	    		<tr>
+	    			<td><label for="name">Name</label></td>
+	    			<td><input type="text" name="name" id="name" value="Azadeh Kosari" class="text ui-widget-content ui-corner-all largetextbox"></td>
+	    			<td></td>
+	    			<td></td>
+	    		</tr>
+	    		<tr>
+	    			<td><label for="email">Email</label></td>
+	    			<td><input type="text" name="email" id="email" value="Azadeh.kosari@gmail.com" class="text ui-widget-content ui-corner-all largetextbox"></td>
+	    			<td></td>
+	    			<td></td>
+	    		</tr>
+	    		<tr>
+	    			<td><label for="cardNumber">cardNumber</label></td>
+	    			<td><input type="text" name="cardNumber" id="cardNumber" value="0000 0000 0000 0000" class="text ui-widget-content ui-corner-all largetextbox"></td>
+	    			<td></td>
+	    			<td></td>
+	    		</tr>
+	    		<tr>
+	    			<td><label for="amount">Amount</label></td>
+	    			<td><input type="text" name="amount" id="amount" value="0" class="text ui-widget-content ui-corner-all "></td>
+	    			<td></td>
+	    			<td></td>
+	    		</tr>
+	    		<tr>
+	    			<td><label for="CVV2">CVV2</label></td>
+	    			<td><input type="password" name="CVV2" id="CVV2" value="xxxxxxx" class="text ui-widget-content ui-corner-all "></td>
+	    			<td></td>
+	    			<td></td>
+	    		</tr>
+	    		
+	    		<tr>
+	    			<td></td>
+	    			<td></td>
+	    			<td></td>
+	    			<td></td>
+	    		</tr>
+	    	</table>
+	      
 	      <!-- Allow form submission with keyboard without duplicating the dialog button -->
 	      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-	    </fieldset>
 	  </form>
 	</div>
 	<!-- /Dialog -->

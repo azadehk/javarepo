@@ -7,11 +7,11 @@ $(document).ready(function() {
 	        method:'POST',
 	        contentType: 'application/json',
 	        data:JSON.stringify({
-	        	flowerId:5,
-	        	price:85,
-	        	fName:"Yellow Rose Flower ",
-	        	imageName: "MIMG15.jpg",
-	        	description:"Yellow Rose Flower Bouquet.",
+	        	flowerId:2,
+	        	price:45,
+	        	fName:"Rose 12",
+	        	imageName: "MIMG12.jpg",
+	        	description:"Rose Flower Bouquet.",
 	        	isAvailable:true
 	        }),
 	        dataType: 'json'
@@ -36,6 +36,11 @@ $(document).ready(function() {
 	       
 	    });
 		
+		function onclickdynamic(id){
+			console.log('onclickdynamic');
+			  dialog.dialog( "open" );
+		  }
+
 	});
 
 
@@ -52,16 +57,22 @@ function renderRow(jsonp){
 			dataRow += '  	<div class="carousel-caption">';
 			dataRow += '    	<h1>'+ this['price'] +' CAD$</h1>';
 			dataRow += '    	<p>'+ this['fName'] +'</p>';
-			dataRow += '    	<p><a role="button" href="#" class="btn btn-lg btn-primary" onclick="javascript:dialog.onclickdynamic('+ this['flowerId'] +')">Place Order</a></p>';
+			dataRow += '    	<p><input id="opendialog'+ this['flowerId'] +'" role="button" type="button" class="btn btn-lg btn-primary" value="Place Order" onclick="javascript:showdialog('+ this['flowerId'] +')" /></p>';
 			dataRow += '    </div>';
 			dataRow += ' </div>';
 			dataRow += '</div>';
 			active = "";
 	  });
 	  $('#itemList').html(dataRow);
+
 }
 
+function showdialog(flowerId){
+	  document.getElementById('txtSelectedId').value= flowerId;
+	  document.getElementById('opendialog').click();
+}
 /////////////////////////////javascript UI
+
 
 $(function() {
     var dialog, form,
@@ -104,11 +115,7 @@ $(function() {
       }
     }
    
-    function onclickdynamic(id){
-  	  dialog.dialog( "open" );
-    }
- 
-    function addUser() {
+    function submitOrder() {
       var valid = true;
       allFields.removeClass( "ui-state-error" );
  
@@ -133,11 +140,11 @@ $(function() {
  
     dialog = $( "#dialog-form" ).dialog({
       autoOpen: false,
-      height: 300,
-      width: 350,
+      height: 600,
+      width: 500,
       modal: true,
       buttons: {
-        "Create an account": addUser,
+        "Submit Order": submitOrder,
         Cancel: function() {
           dialog.dialog( "close" );
         }
@@ -150,13 +157,13 @@ $(function() {
  
     form = dialog.find( "form" ).on( "submit", function( event ) {
       event.preventDefault();
-      addUser();
+      submitOrder();
     });
  
-/*
-    $( "#create-user" ).button().on( "click", function() {
+    
+    $('input[id^="opendialog"]').button().on( "click", function() {
       dialog.dialog( "open" );
-    });*/
+    });
   });
 
 });

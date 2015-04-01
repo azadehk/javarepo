@@ -31,6 +31,9 @@ body {
   border-top: 1px solid #e5e5e5;
 }
 
+.largetextbox{
+	width:350px;
+}
 /* Customize container */
 @media (min-width: 768px) {
   .container {
