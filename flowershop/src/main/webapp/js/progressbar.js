@@ -33,8 +33,7 @@ $(function() {
 progressbar.progressbar({
 		value : false,
 		change : function() {
-			progressLabel.text("Current Progress: "
-					+ progressbar.progressbar("value") + "%");
+			progressLabel.text("Current Progress: " + progressbar.progressbar("value") + "%");
 		},
 		complete : function() {
 			progressLabel.text(completemsg);

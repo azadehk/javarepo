@@ -65,6 +65,10 @@
         <div class="col-lg-6">
           	<input id="opendialog" type="button" value="opendialog" style="display:none"/>
         </div>
+        
+        <div class="col-lg-6">
+          	<input id="pay" type="button" value="pay" style="display:none"/>
+        </div>
       </div>
 
       <footer class="footer">
@@ -97,7 +101,7 @@
 	    			<td colspan="4"><div style="padding:3px"></div></td>
 	    		</tr>
 	    		<tr>
-	    			<td><label for="cardNumber">Card Number</label></td>
+	    			<td><label for="cardNumber">CardNumber</label></td>
 	    			<td><input type="text" name="cardNumber" id="cardNumber" value="0" class="text ui-widget-content ui-corner-all largetextbox"></td>
 	    			<td></td>
 	    			<td></td>
@@ -108,6 +112,38 @@
 	    		<tr>
 	    			<td><label for="amount">Amount</label></td>
 	    			<td><input type="text" name="amount" id="amount" value="0" class="text ui-widget-content ui-corner-all "></td>
+	    			<td></td>
+	    			<td></td>
+	    		</tr>
+	    		<tr>
+	    			<td colspan="4"><div style="padding:3px"></div></td>
+	    		</tr>
+	    		<tr>
+	    			<td><label for="expiryMonth">ExpiryDate</label></td>
+	    			<td>
+	    				<select id="expiryMonth" name="expiryMonth">
+	    					<option value="1">Jan</option>
+	    					<option value="2">Feb</option>
+	    					<option value="3">Mar</option>
+	    					<option value="4">Apr</option>
+	    					<option value="5">May</option>
+	    					<option value="6">Jun</option>
+	    					<option value="7">Jul</option>
+	    					<option value="8">Aug</option>
+	    					<option value="9">Sep</option>
+	    					<option value="10">Oct</option>
+	    					<option value="11">Nov</option>
+	    					<option value="12">Dec</option>
+	    				</select>
+	    				<select id="expiryYear" name="expiryYear">
+	    					<option value="2015">2015</option>
+	    					<option value="2016">2016</option>
+	    					<option value="2017">2017</option>
+	    					<option value="2018">2018</option>
+	    					<option value="2019">2019</option>
+	    					<option value="2020">2020</option>
+	    				</select>
+	    			</td>
 	    			<td></td>
 	    			<td></td>
 	    		</tr>
@@ -130,9 +166,6 @@
 	    			<td colspan="2" align="center"><img id="selectedimage" style="width:150px;height:200px"></img></td>
 	    		</tr>
 	    	</table>
-	      
-	      <!-- Allow form submission with keyboard without duplicating the dialog button -->
-	      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
 	  </form>
 	</div>
 	<!-- /Dialog Form -->
@@ -164,9 +197,11 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/payfirma.minified.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/events.js"></script>
     <script type= "text/javascript" src="${pageContext.request.contextPath}/js/dialog.js"></script>
     <script type= "text/javascript" src="${pageContext.request.contextPath}/js/progressbar.js"></script>
+    <script type= "text/javascript" src="${pageContext.request.contextPath}/js/mypayfirma.js"></script>
     <script src="dist/js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="dist/js/holder.js"></script>

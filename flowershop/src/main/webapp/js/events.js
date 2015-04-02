@@ -1,5 +1,5 @@
-//var dnsname = 'http://second-xz56sfax89.elasticbeanstalk.com/';  
-var dnsname = 'http://localhost:8080/flowershop/';
+var dnsname = 'http://second-xz56sfax89.elasticbeanstalk.com/';  
+//var dnsname = 'http://localhost:8080/flowershop/';
 $(document).ready(function() {
 	$("#create").click(function(){
 		$.ajax({

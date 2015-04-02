@@ -1,11 +1,13 @@
 //Regular Function which may use in other methods. But load at the head of Html
 
-
+//This method show dialog and then call click function of a button on JSP and then call API to fetch data for a flower 
 function showdialog(flowerId){
 	  document.getElementById('txtSelectedId').value= flowerId;
 	  document.getElementById('opendialog').click();
 	  getAFlower();
 }
+
+//Calling the REST Controller to get data for a flower
 function getAFlower(){
 	$.ajax({
         url: dnsname + "flower/" + document.getElementById('txtSelectedId').value,
@@ -22,6 +24,7 @@ function getAFlower(){
     });
 }
 
+//After fetching data for a Flower we must show image and description in dialog form 
 function updatePanel(data){
 	var image = document.getElementById("selectedimage")
 	$(image).attr("src","images/"+ data.imageName);
@@ -29,6 +32,7 @@ function updatePanel(data){
 	$("#selecteddescription").html(data.description);
 }
 
+//Rendering the body of slider
 function renderRow(jsonp){
 	  var obj = JSON.parse(JSON.stringify(jsonp));
 	  var dataRow = "";

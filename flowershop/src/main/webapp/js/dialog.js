@@ -12,7 +12,9 @@ $(function() {
       cardNumber = $( "#cardNumber" ),
       amount = $("#amount"),
       CVV2=$("#CVV2"),
-      allFields = $( [] ).add( name ).add( email ).add( cardNumber ).add( CVV2 ).add( amount ),
+      expiryMonth=$("#expiryMonth"),
+      expiryYear=$("#expiryMonth"),
+      allFields = $( [] ).add( name ).add( email ).add( cardNumber ).add( CVV2 ).add( amount ).add( expiryYear ).add( expiryMonth ),
       tips = $( ".validateTips" );
  
     function updateTips( t ) {
@@ -64,14 +66,10 @@ $(function() {
       valid = valid && checkRegexp( CVV2, /^([0-9])+$/, "CVV2 only allow : 0-9" );
  
       if ( valid ) {
-    	  // do something to complete the shopping
+    	  // do something to complete the shopping like open progressBar and also call PAY function from Payfirma
     	  $("#downloadButton").click();
-        $( "#users tbody" ).append( "<tr>" +
-          "<td>" + name.val() + "</td>" +
-          "<td>" + email.val() + "</td>" +
-          "<td>" + cardNumber.val() + "</td>" +
-        "</tr>" );
-        dialog.dialog( "close" );
+    	  $("#pay").click();
+    	  dialog.dialog( "close" );
       }
       return valid;
     }
@@ -80,7 +78,7 @@ $(function() {
       autoOpen: false,
       height: 600,
       width: 500,
-      modal: true,
+      modal: false,
       buttons: {
         "Submit Order": submitOrder,
         Cancel: function() {
